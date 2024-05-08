@@ -1,0 +1,13 @@
+services:
+  build-server:
+    build: ./build-server
+    image: build-server
+
+  upload-server:
+    build: ./upload-server
+    image: upload-server
+    ports:
+      - 3000:3000
+    # In development environemtn, we need to access host docker daemon from within the container to execute task on build-server
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
