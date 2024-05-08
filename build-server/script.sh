@@ -13,8 +13,8 @@ echo "Cloning repository: $GIT_REPO_URL"
 mkdir code
 cd code
 git clone "$GIT_REPO_URL" .
-
 echo "Clone complete"
+
 
 echo "Running main.js"
 exec node /home/app/main.js 
