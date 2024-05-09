@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   build-server:
     build: ./build-server
@@ -11,3 +13,8 @@ services:
     # In development environemtn, we need to access host docker daemon from within the container to execute task on build-server
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
+  reverse-proxy-server:
+    build: ./reverse-proxy-server
+    ports:
+      - 3001:3001

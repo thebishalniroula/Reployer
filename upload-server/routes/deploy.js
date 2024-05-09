@@ -16,11 +16,15 @@ const deploy = async (req, res) => {
       gitRepoUrl: GIT_REPO_URL,
       projectId: PROJECT_ID,
     });
-    res.sendStatus(200);
+    res
+      .sendStatus(200)
+      .json({ projectId: PROJECT_ID, url: `PROJECT_ID.localhost:3001` });
     return;
   } catch (error) {
     console.log(error);
-    res.sendStatus(500);
+    res
+      .sendStatus(500)
+      .json({ message: "Something went wrong deploying your code." });
     return;
   }
 };
