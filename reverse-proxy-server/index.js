@@ -9,10 +9,10 @@ proxy.on("proxyReq", (proxyReq, req, res) => {
 });
 
 app.use((req, res) => {
-  const hostname = req.hostname;
+  const hostname = req.headers.host;
   const subdomain = hostname.split(".")[0];
 
-  const resolvesTo = `${process.env.BASE_PATH}/${subdomain}`;
+  const resolvesTo = `${"https://sujan-test-2.s3.ap-south-1.amazonaws.com"}/${subdomain}`;
 
   return proxy.web(req, res, { target: resolvesTo, changeOrigin: true });
 });
